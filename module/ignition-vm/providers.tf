@@ -1,5 +1,5 @@
 terraform {
-  required_version = "~> 1.5.0"
+  required_version = "~> 1.9.7"
 
   required_providers {
     /*
@@ -16,7 +16,7 @@ terraform {
     */
     proxmox = {
       source  = "telmate/proxmox"
-      version = "2.9.15"
+      version = "3.0.1-rc4"
     }
 
     /*

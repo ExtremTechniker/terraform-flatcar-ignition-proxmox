@@ -141,9 +141,7 @@ variable "disks" {
     type    = string
     storage = string
     size    = string
-    file    = optional(string)
     format  = optional(string)
-    volume  = optional(string)
     slot    = optional(number)
   }))
   default = []

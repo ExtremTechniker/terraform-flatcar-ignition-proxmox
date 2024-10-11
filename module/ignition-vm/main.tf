@@ -119,8 +119,6 @@ resource "proxmox_vm_qemu" "example_flatcar_ignition_vm" {
       storage = lookup(disk.value, "storage", null)
       size    = lookup(disk.value, "size", null)
       slot    = lookup(disk.value, "slot", null)
-      volume  = lookup(disk.value, "volume", null)
-      file    = lookup(disk.value, "file", null)
       format  = lookup(disk.value, "format", null)
     }
   }

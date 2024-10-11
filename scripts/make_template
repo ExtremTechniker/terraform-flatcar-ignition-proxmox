@@ -34,7 +34,8 @@ VARS_IMAGE=flatcar_production_qemu_uefi_efi_vars.fd
 CODE_IMAGE=flatcar_production_qemu_uefi_efi_code.fd
 OS_IMAGE=flatcar_production_qemu_uefi_image.img
 NAME=flatcar-linux
-DATASTORE=local
+DATASTORE=local-lvm
+DATASTORE_SNIPPETS=local
 
 while true; do
   case "$1" in
@@ -64,7 +65,7 @@ qm create ${VM_ID} \
     --ostype l26 \
     --scsihw virtio-scsi-single \
     --boot order=scsi0 \
-    --hookscript ${DATASTORE}:snippets/multi-hookscript.pl \
+    --hookscript ${DATASTORE_SNIPPETS}:snippets/multi-hookscript.pl \
     --efidisk0 "file=${DATASTORE}:0,import-from=$(readlink -e ${VARS_IMAGE}),format=raw,efitype=4m,pre-enrolled-keys=1" \
     --scsi0 "file=${DATASTORE}:0,import-from=$(readlink -e ${OS_IMAGE}),format=qcow2" \
     --description "Flatcar Template with Ignition configuration" \
